@@ -4,11 +4,14 @@ const port = 3000
 import {Request, Response} from "express";
 
 app.get('/block', (req: Request, res: Response) => {
+    let count: number = 0;
+
     for (let i = 0; i < 400000; i++) {
         console.log("i :",i);
+        count = i;
     }
 
-    res.send('Hello World after a lot of iterations !')
+    res.json({count});
 })
 
 app.get('/ping', (req: Request, res: Response) => {
